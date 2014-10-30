@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
@@ -46,7 +47,13 @@ public class MainActivity extends FragmentActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		
+		ColorDrawable drawable = new ColorDrawable(getResources().getColor(
+				android.R.color.holo_orange_light));
+		
+		getActionBar().setBackgroundDrawable(drawable);
+		
+		
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		listView = (ListView) findViewById(R.id.left_drawer);
 		listView.setAdapter(new MenuAdapter(this));
